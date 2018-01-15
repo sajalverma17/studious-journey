@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="Mp3Wiki.SongTile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" 
+             d:DesignHeight="150"
+             d:DesignWidth="{Binding ActualWidht,ElementName=ParentGrid}"
+             Name="ucTile"
+             >
+
+    <Controls:Tile Name="tile" Foreground="White" Height="100" Margin="7,7,7,7"  Width="{Binding ActualWidht,ElementName=ucTile}"   >
+        
+        <Grid Name="TileGrid"  Width="{Binding ActualWidht,ElementName=ucTile}"  >
+          
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Name="clmImage" Width="100" ></ColumnDefinition>
+                <ColumnDefinition Name="clmDetails" Width="300" ></ColumnDefinition>
+                <ColumnDefinition Name="clmCommands" Width="150"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+        
+
+            <Image  Name="imgAlbumArt" Source="/Images/default_album_art.png" 
+                   Margin="10,5,10,5"  />
+
+            <Grid Grid.Row="0" Grid.Column="1" Name="grdDetails">
+                <Grid.ColumnDefinitions  >
+                    <ColumnDefinition Width="*"></ColumnDefinition>                    
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.40*" ></RowDefinition>
+                    <RowDefinition Height="0.40*"></RowDefinition>
+                    <RowDefinition Height="0.20*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0"  FontSize="15"  TextAlignment="Left"   Name="txtSongTitle" VerticalAlignment="Center" HorizontalAlignment="Stretch" ></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15"   TextAlignment="Left" Name="txtSongAlbum"  VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
+                <!--<Slider Name="PlayerSlider" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"                     
+                        Foreground="White" Background="{DynamicResource AccentColorBrush}" Style="{DynamicResource FlatSlider}"
+                        Maximum="100"
+                        Visibility="Hidden">
+                    
+                </Slider>-->
+                
+
+
+            </Grid>
+            <Controls:ProgressRing Name="PlayProgressRing" Grid.Row="0" Grid.Column="2" Visibility="Hidden" Foreground="White"></Controls:ProgressRing>
+            <Button Grid.Row="0" Grid.Column="2"  Name="btnPlay" Height="30" Width="100"
+                    Content="Play" Style="{StaticResource SquareButtonStyle}" Margin="10,0,10,0" Click="btnPlay_Click"></Button>
+        </Grid>        
+       
+        </Controls:Tile>
+
+    
+
+</UserControl>

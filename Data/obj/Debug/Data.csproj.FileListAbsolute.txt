@@ -1,0 +1,7 @@
+\\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Data\bin\Debug\Data.dll
+\\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Data\bin\Debug\Data.pdb
+\\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Data\bin\Debug\Newtonsoft.Json.dll
+\\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Data\bin\Debug\Newtonsoft.Json.xml
+\\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+\\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Data\obj\Debug\Data.dll
+\\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Data\obj\Debug\Data.pdb
