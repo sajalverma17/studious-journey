@@ -40,10 +40,9 @@ namespace Mp3Wiki
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0,0,1);            
             timer.Tick += timer_Tick;
-            
-            
         }
 
+        //Ticker event to use for updating song buffering 
         void timer_Tick(object sender, EventArgs e)
         {
             //PlayerSlider.Value = songPlayer.Position.Seconds;
@@ -142,21 +141,7 @@ namespace Mp3Wiki
                 imgAlbumArt.Source = img;
             }
         }
-
-        //public async Task<ImageSource> ConvertBitmapAsync(Bitmap src)
-        //{
-        //    ImageSource imgSrc;
-        //    imgSrc = await Task.Run<ImageSource>(() => new ImageSourceConverter().ConvertFrom(src) as ImageSource);
-        //    return imgSrc;
-
-        //    //Task<ImageSource> t = new Task<ImageSource>(() => function(src));               
-        //    //imgSrc = await t;
-        //}
-
-        //private ImageSource function(Bitmap src)
-        //{
-        //    return new ImageSourceConverter().ConvertFrom(src) as ImageSource;
-        //}
+       
 
         
 
