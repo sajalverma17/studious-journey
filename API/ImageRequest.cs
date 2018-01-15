@@ -9,7 +9,6 @@ namespace API
 {
     public class ImageRequest : IRequest<string,Bitmap>
     {
-
         public async Task<Bitmap> MakeRequest(string _image_url)
         {
             Bitmap album_art;
