@@ -27,9 +27,14 @@ namespace Mp3Wiki
     public partial class SongTile : UserControl
     {
         static MediaPlayer songPlayer;
+
+        //HashCode of the tile on which btn was clicked.
+        static int lastClickedBtnHashCode = 0;
+
         //Each song tile will have its personal string instance to download its own album art         
         string _imageUrl;
-        DispatcherTimer timer;
+        
+
         public SongTile(SongContentTemplate dto)
         {
             InitializeComponent();
@@ -37,65 +42,78 @@ namespace Mp3Wiki
             txtSongTitle.Text = dto.Title;
             txtSongAlbum.Text = dto.Album;
             _imageUrl = dto.ImageUrl;
-            timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0,0,1);            
-            timer.Tick += timer_Tick;
-        }
-
-        //Ticker event to use for updating song buffering 
-        void timer_Tick(object sender, EventArgs e)
-        {
-            //PlayerSlider.Value = songPlayer.Position.Seconds;
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
-            btnPlay.Visibility = Visibility.Hidden;
-            PlayProgressRing.Visibility = Visibility.Visible;
-            //PlayerSlider.Visibility = Visibility.Visible;
-            SongContentTemplate tileData = tile.DataContext as SongContentTemplate;
+            if (lastClickedBtnHashCode == sender.GetHashCode())
+            {
+                if (btnPlay.Content.Equals("Pause"))
+                {
+                    songPlayer.Pause();
+                    btnPlay.Content = "Play";
+                }
+                else
+                {
+                    songPlayer.Play();
+                    btnPlay.Content = "Pause";
+                }
+            }
 
-            PlayAsync(tileData.WebURL,tileData.Pid);
+            //btnPlay clicked on a different song Tile
+            else
+            {                
+                if (songPlayer != null)
+                {
+                    songPlayer.Stop();
+                }
+                lastClickedBtnHashCode = sender.GetHashCode();
+
+                btnPlay.Visibility = Visibility.Hidden;
+                PlayProgressRing.Visibility = Visibility.Visible;
+                SongContentTemplate tileData = tile.DataContext as SongContentTemplate;
+                PlayAsync(tileData.WebURL, tileData.Pid);
+            }
         }
-
-        
-        
-
         public async void PlayAsync(string web_url, string pid)
-        {           
+        {
+            ListView listView = this.Parent as ListView;
+            var children = listView.GetChildObjects();
+            foreach(SongTile tile in children)
+            {
+                tile.btnPlay.Content = "Play";
+            }
             
             SaavnPageRequest pageRequest = new SaavnPageRequest();
             System.Diagnostics.Debug.Write("Fetching HTML : " + web_url);
             string html = await pageRequest.MakeRequest(web_url);
-            string enc_value = HTMLParser.Deserialize(html, pid);
-            string mediaUrl = Decrypto.GetDESDecryptedUrl(enc_value);
+            string enc_media_url = HTMLParser.Deserialize(html,pid);
+            string mediaUrl = Decrypto.GetDESDecryptedUrl(enc_media_url);
 
-            if (mediaUrl == null) {
+            if (mediaUrl == null)
+            {
                 btnPlay.Visibility = Visibility.Visible;
                 PlayProgressRing.Visibility = Visibility.Hidden;
                 btnPlay.Content = "Unavailable";
                 btnPlay.IsEnabled = false;
                 return;
             }
-            
+
 
             if (songPlayer == null)
             {
                 songPlayer = new MediaPlayer();
-                timer.Start();
             }
-                
                    
-                Uri uri = new Uri(mediaUrl);
-                
-               
-                songPlayer.Open(uri);
-                songPlayer.Play();
-                songPlayer.Volume = 1;
+            Uri uri = new Uri(mediaUrl);
+            songPlayer.Open(uri);
+            songPlayer.Play();
+            songPlayer.Volume = 1;
 
-            btnPlay.Visibility = Visibility.Visible;
             PlayProgressRing.Visibility = Visibility.Hidden;
-            
+            btnPlay.Content = "Pause";
+            btnPlay.Visibility = Visibility.Visible;
+
         }
 
         public async void DownloadAlbumArtAsync()
@@ -128,7 +146,7 @@ namespace Mp3Wiki
             setAlbumArt(buffer);
         }
 
-        public void setAlbumArt(MemoryStream buffer)
+        private void setAlbumArt(MemoryStream buffer)
         {
             BitmapImage img = new BitmapImage();
             img.BeginInit();
