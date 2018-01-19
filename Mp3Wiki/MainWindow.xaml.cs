@@ -91,7 +91,13 @@ namespace Mp3Wiki
                 listDetails.Items.Clear();
         }
 
-        
+        public void resetPlayPause()
+        {
+            foreach (var tile in listDetails.Items)
+            {
+                (tile as SongTile).btnPlay.Content = "Play";
+            }
+        }
 
         
 
