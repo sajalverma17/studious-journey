@@ -64,7 +64,7 @@ namespace Mp3Wiki
             Debug.WriteLine(result);
         }
 
-        //Utility UI methods----
+        //Utility UI methods--
         private void SetList(List<Song> songList)
         {        
             foreach (var s in songList)

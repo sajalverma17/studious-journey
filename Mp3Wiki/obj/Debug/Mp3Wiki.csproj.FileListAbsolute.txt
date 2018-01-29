@@ -21,6 +21,38 @@
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\App.baml
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\SongTile.baml
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\SongTile.g.cs
+<<<<<<< HEAD
 \\udnbnor.net\dfsroot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\bin\Debug\MahApps.Metro.pdb
 \\udnbnor.net\dfsroot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\bin\Debug\MahApps.Metro.xml
 \\udnbnor.net\dfsroot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\bin\Debug\Newtonsoft.Json.xml
+=======
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\Mp3Wiki.exe.config
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki.exe
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki.pdb
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\Mp3Wiki.exe
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\Mp3Wiki.pdb
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\API.dll
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\Data.dll
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\MahApps.Metro.dll
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\Newtonsoft.Json.dll
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\System.Windows.Interactivity.dll
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\API.pdb
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\Data.pdb
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\MahApps.Metro.pdb
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\MahApps.Metro.xml
+H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\Newtonsoft.Json.xml
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki.csprojResolveAssemblyReference.cache
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\MainWindow.baml
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\SongTile.baml
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\App.baml
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\MainWindow.g.cs
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\SongTile.g.cs
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\App.g.cs
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki_MarkupCompile.cache
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki.g.resources
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki.Properties.Resources.resources
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki.csproj.GenerateResource.Cache
+>>>>>>> 00e94bb9feebf6f61bced7e904dcd48780407379
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\bin\Debug\Mp3Wiki.exe.config
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\Mp3Wiki.exe
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\Mp3Wiki.pdb

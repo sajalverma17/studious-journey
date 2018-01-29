@@ -4,16 +4,20 @@
 winexe
 C#
 .cs
-\\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\
+H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\
 Mp3Wiki
 none
 false
 DEBUG;TRACE
-\\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\App.xaml
+H:\Mp3Wiki\studious-journey\Mp3Wiki\App.xaml
 21766742307
 
 72053161708
+<<<<<<< HEAD
 24-914673805
+=======
+251577533861
+>>>>>>> 00e94bb9feebf6f61bced7e904dcd48780407379
 MainWindow.xaml;SongTile.xaml;
 
 False
