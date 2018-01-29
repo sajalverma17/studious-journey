@@ -68,7 +68,8 @@ namespace Mp3Wiki
                     songPlayer.Stop();
                 }       
                 SongContentTemplate tileData = tile.DataContext as SongContentTemplate;               
-                //TODO : Cancel previous pageRequest made when a new Page Request made...
+                //TODO : Cancel previous page request made when a new Page Request made...
+				//Page Request : Loading done before song played
                 PlayAsync(tileData.WebURL, tileData.Pid);
                 
                 lastClickedBtnHashCode = sender.GetHashCode();
