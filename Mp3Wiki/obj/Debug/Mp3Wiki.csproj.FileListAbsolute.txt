@@ -22,10 +22,13 @@
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\SongTile.baml
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\SongTile.g.cs
 <<<<<<< HEAD
+<<<<<<< HEAD
 \\udnbnor.net\dfsroot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\bin\Debug\MahApps.Metro.pdb
 \\udnbnor.net\dfsroot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\bin\Debug\MahApps.Metro.xml
 \\udnbnor.net\dfsroot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\bin\Debug\Newtonsoft.Json.xml
 =======
+=======
+>>>>>>> 00e94bb9feebf6f61bced7e904dcd48780407379
 H:\Mp3Wiki\studious-journey\Mp3Wiki\bin\Debug\Mp3Wiki.exe.config
 H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki.exe
 H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki.pdb
@@ -52,7 +55,10 @@ H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki_MarkupCompile.cache
 H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki.g.resources
 H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki.Properties.Resources.resources
 H:\Mp3Wiki\studious-journey\Mp3Wiki\obj\Debug\Mp3Wiki.csproj.GenerateResource.Cache
+<<<<<<< HEAD
 >>>>>>> 00e94bb9feebf6f61bced7e904dcd48780407379
 H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\bin\Debug\Mp3Wiki.exe.config
 H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\Mp3Wiki.exe
 H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\Mp3Wiki.pdb
+=======
+>>>>>>> 00e94bb9feebf6f61bced7e904dcd48780407379
