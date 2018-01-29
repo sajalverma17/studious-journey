@@ -5,3 +5,10 @@
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Data\obj\Debug\Data.dll
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Data\obj\Debug\Data.pdb
+H:\Mp3Wiki\studious-journey\Data\bin\Debug\Data.dll
+H:\Mp3Wiki\studious-journey\Data\bin\Debug\Data.pdb
+H:\Mp3Wiki\studious-journey\Data\bin\Debug\Newtonsoft.Json.dll
+H:\Mp3Wiki\studious-journey\Data\bin\Debug\Newtonsoft.Json.xml
+H:\Mp3Wiki\studious-journey\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+H:\Mp3Wiki\studious-journey\Data\obj\Debug\Data.dll
+H:\Mp3Wiki\studious-journey\Data\obj\Debug\Data.pdb
