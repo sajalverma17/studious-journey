@@ -70,6 +70,7 @@ namespace Mp3Wiki
             {                
                 if (songPlayer != null)
                 {
+                    songPlayer.MediaOpened -= songPlayer_MediaOpened;
                     songPlayer.Stop();
                 }       
                 SongContentTemplate tileData = tile.DataContext as SongContentTemplate;
