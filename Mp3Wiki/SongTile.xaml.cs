@@ -27,9 +27,15 @@ namespace Mp3Wiki
     public partial class SongTile : UserControl
     {
         static MediaPlayer songPlayer;
+
+        //HashCode of the tile on which btn was clicked shared across tiles  
+        static int lastClickedBtnHashCode = 0;   
+
         //Each song tile will have its personal string instance to download its own album art         
         string _imageUrl;
-        DispatcherTimer timer;
+
+        DispatcherTimer ticker;
+
         public SongTile(SongContentTemplate dto)
         {
             InitializeComponent();
@@ -37,65 +43,79 @@ namespace Mp3Wiki
             txtSongTitle.Text = dto.Title;
             txtSongAlbum.Text = dto.Album;
             _imageUrl = dto.ImageUrl;
-            timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0,0,1);            
-            timer.Tick += timer_Tick;
-        }
 
-        //Ticker event to use for updating song buffering 
-        void timer_Tick(object sender, EventArgs e)
-        {
-            //PlayerSlider.Value = songPlayer.Position.Seconds;
+           
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
+            if (lastClickedBtnHashCode == sender.GetHashCode())
+            {
+                if (btnPlay.Content.Equals("Pause"))
+                {
+                    songPlayer.Pause();
+                    //PlayerSlider.Value = songPlayer;
+                    btnPlay.Content = "Play";
+                }
+                else
+                {
+                    songPlayer.Play();
+                    btnPlay.Content = "Pause";
+                }
+            }
+
+            //btnPlay clicked on a different song Tile
+            else
+            {                
+                if (songPlayer != null)
+                {
+                    songPlayer.Stop();
+                }       
+                SongContentTemplate tileData = tile.DataContext as SongContentTemplate;
+
+                resetTilesControls();                
+
+                PlayAsync(tileData.WebURL, tileData.Pid);
+                                  
+                lastClickedBtnHashCode = sender.GetHashCode();
+            }
+        }
+        public async void PlayAsync(string web_url, string pid)
+        {
+            btnPlay.Content = "Pause";    
             btnPlay.Visibility = Visibility.Hidden;
             PlayProgressRing.Visibility = Visibility.Visible;
-            //PlayerSlider.Visibility = Visibility.Visible;
-            SongContentTemplate tileData = tile.DataContext as SongContentTemplate;
-
-            PlayAsync(tileData.WebURL,tileData.Pid);
-        }
-
-        
-        
-
-        public async void PlayAsync(string web_url, string pid)
-        {           
+            PlayerSlider.Visibility = Visibility.Visible;            
             
             SaavnPageRequest pageRequest = new SaavnPageRequest();
             System.Diagnostics.Debug.Write("Fetching HTML : " + web_url);
             string html = await pageRequest.MakeRequest(web_url);
-            string enc_value = HTMLParser.Deserialize(html, pid);
-            string mediaUrl = Decrypto.GetDESDecryptedUrl(enc_value);
+            string enc_media_url = HTMLParser.GetEncryptedURL(html,pid);
+            string mediaUrl = Decrypto.GetDESDecryptedUrl(enc_media_url);
 
-            if (mediaUrl == null) {
+            if (mediaUrl == null)
+            {
                 btnPlay.Visibility = Visibility.Visible;
                 PlayProgressRing.Visibility = Visibility.Hidden;
                 btnPlay.Content = "Unavailable";
                 btnPlay.IsEnabled = false;
                 return;
             }
-            
 
             if (songPlayer == null)
-            {
+            {                
                 songPlayer = new MediaPlayer();
-                timer.Start();
+                songPlayer.MediaOpened += songPlayer_MediaOpened;
+                songPlayer.MediaEnded += songPlayer_MediaEnded;                
             }
-                
                    
-                Uri uri = new Uri(mediaUrl);
-                
-               
-                songPlayer.Open(uri);
-                songPlayer.Play();
-                songPlayer.Volume = 1;
+            Uri uri = new Uri(mediaUrl);
+            songPlayer.Open(uri);
+            songPlayer.Play();
+            songPlayer.Volume = 1;
 
             btnPlay.Visibility = Visibility.Visible;
             PlayProgressRing.Visibility = Visibility.Hidden;
-            
         }
 
         public async void DownloadAlbumArtAsync()
@@ -105,18 +125,17 @@ namespace Mp3Wiki
             Bitmap albumArtBmp;
             try
             {
-                albumArtBmp = await new ImageRequest().MakeRequest(_imageUrl);  
+                albumArtBmp = await new ImageRequest().MakeRequest(_imageUrl);
                 albumArtBmp.Save(buffer, System.Drawing.Imaging.ImageFormat.Bmp);
-                
             }
             catch (Exception e)
-            {                               
+            {
                 System.Diagnostics.Debug.WriteLine("Better quality image not found. So downloading 50x50.");
                 return;
             }
 
             setAlbumArt(buffer);
-            
+
         }
 
         public async void DownloadLowQualityArtAsync(string url)
@@ -128,7 +147,32 @@ namespace Mp3Wiki
             setAlbumArt(buffer);
         }
 
-        public void setAlbumArt(MemoryStream buffer)
+        void songPlayer_MediaOpened(object sender, EventArgs e)
+        {
+            PlayerSlider.Maximum = songPlayer.NaturalDuration.TimeSpan.TotalMilliseconds;            
+            ticker = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, (s, ev) => { PlayerSlider.Value += songPlayer.Position.Milliseconds; }, songPlayer.Dispatcher);
+        }       
+
+        void songPlayer_MediaEnded(object sender, EventArgs e)
+        {
+            resetTilesControls();
+        }
+
+        private void resetTilesControls()
+        {
+            var listView = (Application.Current.MainWindow as MainWindow).listDetails;
+            var children = listView.GetChildObjects();
+
+            foreach (SongTile tile in children)
+            {
+                tile.btnPlay.Content = "Play";                
+                tile.PlayerSlider.Visibility = Visibility.Hidden;
+                tile.PlayerSlider.Value = 0;
+                
+            }
+        }        
+
+        private void setAlbumArt(MemoryStream buffer)
         {
             BitmapImage img = new BitmapImage();
             img.BeginInit();

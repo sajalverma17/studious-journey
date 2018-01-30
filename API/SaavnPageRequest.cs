@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Data;
 
 namespace API
 {
@@ -27,8 +28,8 @@ namespace API
             
             byte[] bArray = await client.GetByteArrayAsync(web_url);
             string result = Encoding.UTF8.GetString(bArray, 0, bArray.Length);
-  
             return result;
+            
         }
     }
 }
