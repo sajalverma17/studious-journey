@@ -49,6 +49,7 @@ namespace Mp3Wiki
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
+                        
             if (lastClickedBtnHashCode == sender.GetHashCode())
             {
                 if (btnPlay.Content.Equals("Pause"))
@@ -73,7 +74,7 @@ namespace Mp3Wiki
                 }       
                 SongContentTemplate tileData = tile.DataContext as SongContentTemplate;
 
-                resetTilesControls();                
+                resetAllTilesControls();                
 
                 PlayAsync(tileData.WebURL, tileData.Pid);
                                   
@@ -104,11 +105,12 @@ namespace Mp3Wiki
 
             if (songPlayer == null)
             {                
-                songPlayer = new MediaPlayer();
-                songPlayer.MediaOpened += songPlayer_MediaOpened;
+                songPlayer = new MediaPlayer();                
                 songPlayer.MediaEnded += songPlayer_MediaEnded;                
             }
-                   
+           
+            songPlayer.MediaOpened += songPlayer_MediaOpened;
+
             Uri uri = new Uri(mediaUrl);
             songPlayer.Open(uri);
             songPlayer.Play();
@@ -133,7 +135,7 @@ namespace Mp3Wiki
                 System.Diagnostics.Debug.WriteLine("Better quality image not found. So downloading 50x50.");
                 return;
             }
-
+            
             setAlbumArt(buffer);
 
         }
@@ -145,20 +147,21 @@ namespace Mp3Wiki
             MemoryStream buffer = new MemoryStream();
             albumArtBmp.Save(buffer, System.Drawing.Imaging.ImageFormat.Bmp);
             setAlbumArt(buffer);
+            
         }
 
         void songPlayer_MediaOpened(object sender, EventArgs e)
         {
             PlayerSlider.Maximum = songPlayer.NaturalDuration.TimeSpan.TotalMilliseconds;            
-            ticker = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, (s, ev) => { PlayerSlider.Value += songPlayer.Position.Milliseconds; }, songPlayer.Dispatcher);
+            ticker = new DispatcherTimer(new TimeSpan(0,0,1), DispatcherPriority.Normal, (s, ev) => { PlayerSlider.Value = songPlayer.Position.TotalMilliseconds; }, songPlayer.Dispatcher);
         }       
 
         void songPlayer_MediaEnded(object sender, EventArgs e)
         {
-            resetTilesControls();
+            resetAllTilesControls();
         }
 
-        private void resetTilesControls()
+        private void resetAllTilesControls()
         {
             var listView = (Application.Current.MainWindow as MainWindow).listDetails;
             var children = listView.GetChildObjects();
@@ -168,7 +171,6 @@ namespace Mp3Wiki
                 tile.btnPlay.Content = "Play";                
                 tile.PlayerSlider.Visibility = Visibility.Hidden;
                 tile.PlayerSlider.Value = 0;
-                
             }
         }        
 

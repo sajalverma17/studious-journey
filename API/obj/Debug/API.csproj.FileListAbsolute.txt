@@ -44,3 +44,5 @@ H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\N
 H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\obj\Debug\API.csprojResolveAssemblyReference.cache
 H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\obj\Debug\API.dll
 H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\obj\Debug\API.pdb
+H:\Mp3Wiki\studious-journey\API\bin\Debug\Data.dll
+H:\Mp3Wiki\studious-journey\API\bin\Debug\Data.pdb
