@@ -39,15 +39,12 @@
 
                 <TextBlock Grid.Column="0" Grid.Row="0"  FontSize="15"  TextAlignment="Left"   Name="txtSongTitle" VerticalAlignment="Center" HorizontalAlignment="Stretch" ></TextBlock>
                 <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15"   TextAlignment="Left" Name="txtSongAlbum"  VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
-                <!--<Slider Name="PlayerSlider" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"                     
+                <Slider Name="PlayerSlider" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"                     
                         Foreground="White" Background="{DynamicResource AccentColorBrush}" Style="{DynamicResource FlatSlider}"
                         Maximum="100"
                         Visibility="Hidden">
-                    
-                </Slider>-->
+                </Slider>
                 
-
-
             </Grid>
             <Controls:ProgressRing Name="PlayProgressRing" Grid.Row="0" Grid.Column="2" Visibility="Hidden" Foreground="White"></Controls:ProgressRing>
             <Button Grid.Row="0" Grid.Column="2"  Name="btnPlay" Height="30" Width="100"

@@ -12,10 +12,8 @@
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\obj\Debug\API.dll
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\obj\Debug\API.pdb
 <<<<<<< HEAD
-<<<<<<< HEAD
 \\udnbnor.net\dfsroot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\Data.dll
 \\udnbnor.net\dfsroot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\Data.pdb
-=======
 =======
 >>>>>>> 00e94bb9feebf6f61bced7e904dcd48780407379
 H:\Mp3Wiki\studious-journey\API\bin\Debug\API.dll
@@ -31,7 +29,18 @@ H:\Mp3Wiki\studious-journey\API\bin\Debug\System.Web.Http.WebHost.xml
 H:\Mp3Wiki\studious-journey\API\obj\Debug\API.csprojResolveAssemblyReference.cache
 H:\Mp3Wiki\studious-journey\API\obj\Debug\API.dll
 H:\Mp3Wiki\studious-journey\API\obj\Debug\API.pdb
-<<<<<<< HEAD
->>>>>>> 00e94bb9feebf6f61bced7e904dcd48780407379
-=======
->>>>>>> 00e94bb9feebf6f61bced7e904dcd48780407379
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\API.dll
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\API.pdb
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\Data.dll
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\System.Net.Http.Formatting.dll
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\System.Web.Http.dll
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\System.Web.Http.WebHost.dll
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\Newtonsoft.Json.dll
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\Data.pdb
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\System.Net.Http.Formatting.xml
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\System.Web.Http.xml
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\System.Web.Http.WebHost.xml
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\bin\Debug\Newtonsoft.Json.xml
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\obj\Debug\API.csprojResolveAssemblyReference.cache
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\obj\Debug\API.dll
+H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\API\obj\Debug\API.pdb

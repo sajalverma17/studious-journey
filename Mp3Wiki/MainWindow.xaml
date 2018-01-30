@@ -28,7 +28,7 @@
         <Controls:MetroProgressBar Name="progressBar" Foreground="White" Background="Transparent" HorizontalAlignment="Center"
                                    Height="20" Margin="0,43,0,0" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=ParentGrid}"
                                     />
-        <Label Content="V1.1 Coded for fun by Sajal" Opacity="0.5" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+        <Label Content="V1.2 Coded for fun by Sajal" Opacity="0.5" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
         
     </Grid>
     

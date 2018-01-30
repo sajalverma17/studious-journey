@@ -33,7 +33,8 @@ namespace Mp3Wiki
 
         //Each song tile will have its personal string instance to download its own album art         
         string _imageUrl;
-        
+
+        DispatcherTimer ticker;
 
         public SongTile(SongContentTemplate dto)
         {
@@ -42,6 +43,8 @@ namespace Mp3Wiki
             txtSongTitle.Text = dto.Title;
             txtSongAlbum.Text = dto.Album;
             _imageUrl = dto.ImageUrl;
+
+           
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -51,6 +54,7 @@ namespace Mp3Wiki
                 if (btnPlay.Content.Equals("Pause"))
                 {
                     songPlayer.Pause();
+                    //PlayerSlider.Value = songPlayer;
                     btnPlay.Content = "Play";
                 }
                 else
@@ -67,24 +71,26 @@ namespace Mp3Wiki
                 {
                     songPlayer.Stop();
                 }       
-                SongContentTemplate tileData = tile.DataContext as SongContentTemplate;               
-                //TODO : Cancel previous page request made when a new Page Request made...
-				//Page Request : Loading done before song played
+                SongContentTemplate tileData = tile.DataContext as SongContentTemplate;
+
+                resetTilesControls();                
+
                 PlayAsync(tileData.WebURL, tileData.Pid);
-                
+                                  
                 lastClickedBtnHashCode = sender.GetHashCode();
             }
         }
         public async void PlayAsync(string web_url, string pid)
         {
+            btnPlay.Content = "Pause";    
             btnPlay.Visibility = Visibility.Hidden;
             PlayProgressRing.Visibility = Visibility.Visible;
-            setPlayButton();
+            PlayerSlider.Visibility = Visibility.Visible;            
             
             SaavnPageRequest pageRequest = new SaavnPageRequest();
             System.Diagnostics.Debug.Write("Fetching HTML : " + web_url);
             string html = await pageRequest.MakeRequest(web_url);
-            string enc_media_url = HTMLParser.Deserialize(html,pid);
+            string enc_media_url = HTMLParser.GetEncryptedURL(html,pid);
             string mediaUrl = Decrypto.GetDESDecryptedUrl(enc_media_url);
 
             if (mediaUrl == null)
@@ -96,10 +102,10 @@ namespace Mp3Wiki
                 return;
             }
 
-
             if (songPlayer == null)
-            {
+            {                
                 songPlayer = new MediaPlayer();
+                songPlayer.MediaOpened += songPlayer_MediaOpened;
                 songPlayer.MediaEnded += songPlayer_MediaEnded;                
             }
                    
@@ -110,23 +116,6 @@ namespace Mp3Wiki
 
             btnPlay.Visibility = Visibility.Visible;
             PlayProgressRing.Visibility = Visibility.Hidden;
-
-        }       
-
-        void songPlayer_MediaEnded(object sender, EventArgs e)
-        {
-            setPlayButton();
-        }
-
-        private void setPlayButton()
-        {
-            var listView = (Application.Current.MainWindow as MainWindow).listDetails;
-            var children = listView.GetChildObjects();
-
-            foreach (SongTile tile in children)
-            {
-                tile.btnPlay.Content = "Play";
-            }
         }
 
         public async void DownloadAlbumArtAsync()
@@ -136,18 +125,17 @@ namespace Mp3Wiki
             Bitmap albumArtBmp;
             try
             {
-                albumArtBmp = await new ImageRequest().MakeRequest(_imageUrl);  
+                albumArtBmp = await new ImageRequest().MakeRequest(_imageUrl);
                 albumArtBmp.Save(buffer, System.Drawing.Imaging.ImageFormat.Bmp);
-                
             }
             catch (Exception e)
-            {                               
+            {
                 System.Diagnostics.Debug.WriteLine("Better quality image not found. So downloading 50x50.");
                 return;
             }
 
             setAlbumArt(buffer);
-            
+
         }
 
         public async void DownloadLowQualityArtAsync(string url)
@@ -158,6 +146,31 @@ namespace Mp3Wiki
             albumArtBmp.Save(buffer, System.Drawing.Imaging.ImageFormat.Bmp);
             setAlbumArt(buffer);
         }
+
+        void songPlayer_MediaOpened(object sender, EventArgs e)
+        {
+            PlayerSlider.Maximum = songPlayer.NaturalDuration.TimeSpan.TotalMilliseconds;            
+            ticker = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, (s, ev) => { PlayerSlider.Value += songPlayer.Position.Milliseconds; }, songPlayer.Dispatcher);
+        }       
+
+        void songPlayer_MediaEnded(object sender, EventArgs e)
+        {
+            resetTilesControls();
+        }
+
+        private void resetTilesControls()
+        {
+            var listView = (Application.Current.MainWindow as MainWindow).listDetails;
+            var children = listView.GetChildObjects();
+
+            foreach (SongTile tile in children)
+            {
+                tile.btnPlay.Content = "Play";                
+                tile.PlayerSlider.Visibility = Visibility.Hidden;
+                tile.PlayerSlider.Value = 0;
+                
+            }
+        }        
 
         private void setAlbumArt(MemoryStream buffer)
         {
