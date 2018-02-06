@@ -173,6 +173,7 @@ namespace Mp3Wiki
                 tile.PlayerSlider.Visibility = Visibility.Hidden;
                 tile.PlayerSlider.Value = 0;
             }
+            lastClickedBtnHashCode = 0;
         }        
 
         private void setAlbumArt(MemoryStream buffer)
@@ -188,9 +189,5 @@ namespace Mp3Wiki
                 imgAlbumArt.Source = img;
             }
         }
-       
-
-        
-
     }
 }

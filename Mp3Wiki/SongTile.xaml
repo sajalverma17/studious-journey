@@ -42,7 +42,10 @@
                 <Slider Name="PlayerSlider" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"                     
                         Foreground="White" Background="{DynamicResource AccentColorBrush}" Style="{DynamicResource FlatSlider}"
                         Maximum="100"
-                        Visibility="Hidden">
+                        Visibility="Hidden"
+                       
+                        
+                        >
                 </Slider>
                 
             </Grid>

@@ -8,7 +8,7 @@ namespace Data
 {
     public class HTMLParser
     {
-
+       
         //Find all string between --- \"url\":\ 
         //and --- ,\"pid\":\"{0}\" where {0} = PID
         public static string GetEncryptedURL(string txtHTML, string pid)
