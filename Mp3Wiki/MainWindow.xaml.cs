@@ -48,20 +48,29 @@ namespace Mp3Wiki
         }
         public async void DownloadAsync()   
         {
-            Debug.WriteLine("Starting download");
-            
+            Debug.WriteLine("Starting search");
+
+            //TODO : handle HttpRequestException : Response status code does not indicate success: 503 (Service Unavailable: Back-end server is at capacity).
             SearchRequest s = new SearchRequest();           
             string result = await s.MakeRequest(txtQuery.Text);
 
             List<Song> songList = new List<Song>();
-            songList = JSONParser.Deserialize(result);
+            if (result != null)
+            {
+                songList = JSONParser.Deserialize(result);
+                ResetList();
+                SetList(songList);
 
-            ResetList();
-            SetList(songList);
+                
 
+                Debug.WriteLine(result);
+            }
+            else 
+            {
+                //Do  nothing
+            }
             progressBar.IsIndeterminate = false;
-
-            Debug.WriteLine(result);
+            
         }
 
         //Utility UI methods--
@@ -89,14 +98,6 @@ namespace Mp3Wiki
         {
             if(listDetails.Items.Count >0)
                 listDetails.Items.Clear();
-        }
-
-        public void resetPlayPause()
-        {
-            foreach (var tile in listDetails.Items)
-            {
-                (tile as SongTile).btnPlay.Content = "Play";
-            }
         }
 
         

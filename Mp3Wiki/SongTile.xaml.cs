@@ -39,12 +39,11 @@ namespace Mp3Wiki
         public SongTile(SongContentTemplate dto)
         {
             InitializeComponent();
+
             tile.DataContext = dto;
             txtSongTitle.Text = dto.Title;
             txtSongAlbum.Text = dto.Album;
-            _imageUrl = dto.ImageUrl;
-
-           
+            _imageUrl = dto.ImageUrl;           
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)

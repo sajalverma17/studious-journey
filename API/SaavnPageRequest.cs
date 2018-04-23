@@ -12,7 +12,7 @@ namespace API
     //Get enc_media_url from source code of Song's page
     public class SaavnPageRequest : IRequest<string, string>
     {
-        public async Task<string> MakeRequest(string web_url)
+        public async Task<string> MakeRequest(string web_url) 
         {
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("GET", "/s/song/english/Work/Work/IyQtQEJqQ3Y HTTP/1.1");
@@ -28,8 +28,7 @@ namespace API
             
             byte[] bArray = await client.GetByteArrayAsync(web_url);
             string result = Encoding.UTF8.GetString(bArray, 0, bArray.Length);
-            return result;
-            
+            return result;            
         }
     }
 }
