@@ -36,14 +36,20 @@ namespace Mp3Wiki
 
         DispatcherTimer ticker;
 
-        public SongTile(SongContentTemplate dto)
+        Song _song;
+
+        public Song SongData { get { return _song; } set{_song = value;} }        
+
+        public SongTile(Song data)
         {
+            SongData = data;
+            
             InitializeComponent();
 
-            tile.DataContext = dto;
-            txtSongTitle.Text = dto.Title;
-            txtSongAlbum.Text = dto.Album;
-            _imageUrl = dto.ImageUrl;           
+            tile.DataContext = data;
+            //txtSongTitle.Text = dto.Title;
+            //txtSongAlbum.Text = SongData.Album;
+            _imageUrl = SongData.ImageURL;           
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)

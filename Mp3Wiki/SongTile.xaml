@@ -37,8 +37,18 @@
                     <RowDefinition Height="0.20*"></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Column="0" Grid.Row="0"  FontSize="15"  TextAlignment="Left"   Name="txtSongTitle" VerticalAlignment="Center" HorizontalAlignment="Stretch" ></TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15"   TextAlignment="Left" Name="txtSongAlbum"  VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="0"  FontSize="15"
+                           TextAlignment="Left"   Name="txtSongTitle" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Stretch" 
+                           Text="{Binding Path=SongData.Title}"                           
+                           ></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15"  
+                           TextAlignment="Left" Name="txtSongAlbum" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Stretch"
+                           Text="{Binding Path=SongData.Album}"
+                           ></TextBlock>
                 <Slider Name="PlayerSlider" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"                     
                         Foreground="White" Background="{DynamicResource AccentColorBrush}" Style="{DynamicResource FlatSlider}"
                         Maximum="100"

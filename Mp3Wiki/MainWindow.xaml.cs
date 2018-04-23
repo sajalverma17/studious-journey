@@ -17,7 +17,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 
-
 namespace Mp3Wiki
 {
     /// <summary>
@@ -27,7 +26,7 @@ namespace Mp3Wiki
     {
         SearchRequest searchRequest;
         SaavnPageRequest pageRequest;
-        MediaPlayer songPlayer;
+        
         public MainWindow()
         {
             this.ShowMaxRestoreButton = false;
@@ -60,9 +59,6 @@ namespace Mp3Wiki
                 songList = JSONParser.Deserialize(result);
                 ResetList();
                 SetList(songList);
-
-                
-
                 Debug.WriteLine(result);
             }
             else 
@@ -80,16 +76,16 @@ namespace Mp3Wiki
             {
                 Song song = (Song)s;
 
-                SongContentTemplate dto = new SongContentTemplate();
-                dto.Pid = song.ID;
-                dto.Title = song.Title;
-                dto.WebURL = song.WebPageURL;
-                dto.Album = song.Album;
-                dto.ImageUrl = song.ImageURL;
+                //SongContentTemplate dto = new SongContentTemplate();
+                //dto.Pid = song.ID;
+                //dto.Title = song.Title;
+                //dto.WebURL = song.WebPageURL;
+                //dto.Album = song.Album;
+                //dto.ImageUrl = song.ImageURL;
                 
-                SongTile tile = new SongTile(dto);
+                SongTile tile = new SongTile(song);
                 tile.DownloadAlbumArtAsync();
-
+                
                 listDetails.Items.Add(tile);
             }
         } 

@@ -10,10 +10,10 @@
         MinHeight="600">
     
     <Grid Name="ParentGrid">
-
-        <Grid.Background>
+        
+        <!--<Grid.Background>
             <ImageBrush ImageSource="/Images/Window_Background_Blue.jpg"/>
-        </Grid.Background>
+        </Grid.Background>-->
         <TextBox Name="txtQuery" HorizontalAlignment="Center" Height="23" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"                 
                  TextChanged="txtQuery_TextChanged_1"
                  Controls:TextBoxHelper.ClearTextButton="True"

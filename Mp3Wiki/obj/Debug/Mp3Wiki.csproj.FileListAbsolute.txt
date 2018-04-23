@@ -76,3 +76,6 @@ H:\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Deb
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\Mp3Wiki.csproj.GenerateResource.Cache
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\Mp3Wiki.exe
 \\udnbnor.net\DfsRoot\Home\AB20095\My Documents\Visual Studio 2012\Projects\Mp3Wiki\Mp3Wiki\obj\Debug\Mp3Wiki.pdb
+C:\VS Projects\Mp3Wiki\Mp3Wiki\bin\Debug\Mp3Wiki.exe.config
+C:\VS Projects\Mp3Wiki\Mp3Wiki\obj\Debug\Mp3Wiki.exe
+C:\VS Projects\Mp3Wiki\Mp3Wiki\obj\Debug\Mp3Wiki.pdb
