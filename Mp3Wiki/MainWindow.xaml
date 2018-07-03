@@ -3,13 +3,16 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" 
-        Icon="Images\app_logo_icon.ico"       
+        Icon="Images\app_logo_icon.ico"        
         Title="Mp3Wiki"
         Height="600" Width="800"
         MinWidth="600"
-        MinHeight="600">
+        MinHeight="600"      
+        BorderBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="3"
+    >
     
-    <Grid Name="ParentGrid">
+    <Grid Name="ParentGrid" Margin="3,3,3,3">
         
         <!--<Grid.Background>
             <ImageBrush ImageSource="/Images/Window_Background_Blue.jpg"/>
