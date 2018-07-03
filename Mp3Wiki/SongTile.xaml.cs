@@ -1,19 +1,9 @@
 ﻿using MahApps.Metro.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Media;
 using API;
 using Data;
 using System.Drawing;
@@ -36,19 +26,15 @@ namespace Mp3Wiki
 
         DispatcherTimer ticker;
 
-        Song _song;
+        private Song _song;
 
         public Song SongData { get { return _song; } set{_song = value;} }        
 
         public SongTile(Song data)
         {
             SongData = data;
-            
             InitializeComponent();
-
-            tile.DataContext = data;
-            //txtSongTitle.Text = dto.Title;
-            //txtSongAlbum.Text = SongData.Album;
+            DataContext = this;                        
             _imageUrl = SongData.ImageURL;           
         }
 
@@ -78,11 +64,11 @@ namespace Mp3Wiki
                     songPlayer.MediaOpened -= songPlayer_MediaOpened;
                     songPlayer.Stop();
                 }       
-                SongContentTemplate tileData = tile.DataContext as SongContentTemplate;
+                //SongContentTemplate tileData = tile.DataContext as SongContentTemplate;
 
                 resetAllTilesControls();                
 
-                PlayAsync(tileData.WebURL, tileData.Pid);
+                PlayAsync(SongData.WebPageURL, SongData.ID);
                                   
                 lastClickedBtnHashCode = sender.GetHashCode();
             }
