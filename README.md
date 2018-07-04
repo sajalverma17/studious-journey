@@ -1,5 +1,5 @@
 # studious-journey
-Hacked together a Windows app for instant streaming of music on your computer. Download the release, and fire it up. Search for a song, artist or an album and hit the play button!
+Hacked together a Windows app for instant streaming of music on your computer. Search for a song, artist or an album and start playing. Download then unzip the [release](https://github.com/sajalverma17/studious-journey/releases/tag/1.1) to test out the app.
 
 ![Screenshot1](https://user-images.githubusercontent.com/25904133/42291263-4216fd02-7fe8-11e8-94d7-a656d58cae2a.png)
 
